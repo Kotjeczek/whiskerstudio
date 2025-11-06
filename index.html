@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Whiskers Studio</title>
+  <style>
+    :root {
+      --card-radius: 20px;
+      --glass-blur: 10px;
+      --accent: 220 90% 60%;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, sans-serif;
+      min-height: 100vh;
+      color: #fff;
+      background-image: linear-gradient(120deg, rgba(10,10,30,0.45), rgba(40,10,60,0.45)), 
+                        url('https://media.tenor.com/ozP8xd9cfhkAAAAM/jhope-arson-jhope.gif');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      overflow-y: auto;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: inherit;
+      background-size: cover;
+      background-position: center;
+      filter: blur(80px);
+      z-index: -1;
+    }
+
+    .fixed-header {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 16px;
+      padding: 8px 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      z-index: 10;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .fixed-header:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    }
+
+    .fixed-header img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 12px;
+      opacity: 0.9;
+    }
+
+    .fixed-header span {
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #fff;
+      opacity: 0.95;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    }
+
+    .wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+      gap: 2rem;
+      box-sizing: border-box;
+    }
+
+    .glass-card {
+      position: relative;
+      border-radius: var(--card-radius);
+      padding: 2rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 8px 30px rgba(10,10,20,0.6);
+      backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+      -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(120%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      width: 100%;
+      max-width: 700px;
+      transition: transform 300ms ease, box-shadow 300ms ease;
+    }
+
+    .glass-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(10,10,30,0.6);
+    }
+
+    .accent-pill {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, hsl(var(--accent)/1), hsl(var(--accent)/0.7));
+      box-shadow: 0 6px 18px hsl(var(--accent)/0.25);
+    }
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    p {
+      margin: 0.25rem 0 0;
+      opacity: 0.95;
+    }
+
+    .video-glass {
+      width: 100%;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+      gap: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video-glass:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55);
+    }
+
+    video {
+      border-radius: 12px;
+      width: 100%;
+      height: auto;
+      display: block;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="fixed-header">
+    <img src="studioicon.png" alt="Studio Icon">
+    <span>Whiskers Studio</span>
+  </div>
+
+  <div class="wrap">
+    <div class="glass-card">
+      <div class="accent-pill" aria-hidden="true"></div>
+      <div class="content">
+        <h1>About Me</h1>
+        <p>Hi, I'm Kotjeczek! I like to make games mainly in Roblox — this place is where I share most of my work!</p>
+      </div>
+    </div>
+
+    <div class="glass-card">
+      <div class="accent-pill" aria-hidden="true"></div>
+      <div class="content">
+        <h1>About This Site</h1>
+        <p>This is a portfolio of work that I'm doing to share with other people!</p>
+      </div>
+    </div>
+
+    <div class="glass-card">
+      <img src="LAIcon1.png" alt="Lost Agents Icon" style="position:absolute; top:20px; right:20px; width:60px; height:60px; opacity:0.9;">
+      <div class="accent-pill" aria-hidden="true"></div>
+      <div class="content">
+        <h1>Lost Agents</h1>
+        <p>My Roblox game that I'm currently working on, inspired by Decaying Winter also on Roblox.</p>
+      </div>
+
+      <div class="video-glass">
+        <video controls>
+          <source src="myvideo.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+
+        <video controls>
+          <source src="myvideo2.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <canvas id="fluid-cursor"></canvas>
+
+  <script>
+    const canvas = document.getElementById("fluid-cursor");
+    const ctx = canvas.getContext("2d");
+    let width, height;
+    let particles = [];
+
+    function resize() {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    document.addEventListener("mousemove", (e) => {
+      for (let i = 0; i < 4; i++) {
+        particles.push({
+          x: e.clientX,
+          y: e.clientY,
+          vx: (Math.random() - 0.5) * 3,
+          vy: (Math.random() - 0.5) * 3,
+          r: 5 + Math.random() * 10,
+          life: 1
+        });
+      }
+    });
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach((p, i) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vx *= 0.08;
+        p.vy *= 0.08;
+        p.life -= 0.013;
+
+        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r);
+        gradient.addColorStop(0, `hsla(275, 100%, 60%, ${p.life * 0.4})`);
+        gradient.addColorStop(1, `hsla(275, 100%, 60%, 0)`);
+
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        if (p.life <= 0) particles.splice(i, 1);
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.pointerEvents = "none";
+    canvas.style.zIndex = "9";
+    canvas.style.mixBlendMode = "screen";
+  </script>
+</body>
+</html>
